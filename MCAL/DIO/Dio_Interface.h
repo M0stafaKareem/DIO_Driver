@@ -18,8 +18,7 @@ typedef enum{
 	pin4__ ,
 	pin5__ ,
 	pin6__ ,
-	pin7__ ,
-	pin8__ 
+	pin7__
 }enu_pin;
 
 /*direction Enum*/

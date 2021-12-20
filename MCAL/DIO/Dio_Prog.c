@@ -77,45 +77,20 @@ u8 DIO_u8GetPinValue(enu_port Copy_enuPort,enu_pin Copy_enuPin,u8* pu8Value)
 					/*Set port's direction*/
 u8 DIO_u8SetPortDirection(enu_port Copy_enuPort,u8 Copy_u8Port_Direction){
 
-switch(Copy_enuPort)
-{
-	case portA :
-		for(int i=0;i<8;i++)
-		{
-			if( ( (Copy_u8Port_Direction>>i) & 1 ) ==0)
-				CLR_BIT(DDRA,i);
-			else
-				SET_BIT(DDRA,i);
+	switch(Copy_enuPort)
+	{
+		case portA :
+			DDRA=Copy_u8Port_Direction;break;
 
-		}break;
+		case portB :
+			DDRB=Copy_u8Port_Direction;break;
 
-	case portB :
-		for(int i=0;i<8;i++)
-		{
-			if( ( (Copy_u8Port_Direction>>i) & 1 ) ==0)
-				CLR_BIT(DDRB,i);
-			else
-				SET_BIT(DDRB,i);
-		}break;
+		case portC :
+			DDRC=Copy_u8Port_Direction;break;
 
-	case portC :
-		for(int i=0;i<8;i++)
-		{
-			if( ( (Copy_u8Port_Direction>>i) & 1 ) ==0)
-				CLR_BIT(DDRC,i);
-			else
-				SET_BIT(DDRC,i);
-		}break;
-
-	case portD :
-		for(int i=0;i<8;i++)
-		{
-			if( ( (Copy_u8Port_Direction>>i) & 1 ) ==0)
-				CLR_BIT(DDRD,i);
-			else
-				SET_BIT(DDRD,i);
-		}break;
-}
+		case portD :
+			DDRD=Copy_u8Port_Direction;break;
+	}
 }
 
 					/*Set port's value*/
@@ -124,41 +99,16 @@ u8 DIO_u8SetPortValue(enu_port Copy_enuPort,u8 Copy_u8Port_Value){
 	switch(Copy_enuPort)
 	{
 		case portA :
-			for(int i=0;i<8;i++)
-			{
-				if( ( (Copy_u8Port_Value>>i) & 1) ==0)
-					CLR_BIT(PORTA,i);
-				else
-					SET_BIT(PORTA,i);
-
-			}break;
+			PORTA=Copy_u8Port_Value;break;
 
 		case portB :
-			for(int i=0;i<8;i++)
-			{
-				if( ( (Copy_u8Port_Value>>i) & 1) ==0)
-					CLR_BIT(PORTB,i);
-				else
-					SET_BIT(PORTB,i);
-			}break;
+			PORTB=Copy_u8Port_Value;break;
 
 		case portC :
-			for(int i=0;i<8;i++)
-			{
-				if( ( (Copy_u8Port_Value>>i) & 1) ==0)
-					CLR_BIT(PORTC,i);
-				else
-					SET_BIT(PORTC,i);
-			}break;
+			PORTC=Copy_u8Port_Value;break;
 
 		case portD :
-			for(int i=0;i<8;i++)
-			{
-				if( ( (Copy_u8Port_Value>>i) & 1) ==0)
-					CLR_BIT(PORTD,i);
-				else
-					SET_BIT(PORTD,i);
-			}break;
+			PORTD=Copy_u8Port_Value;break;
 	}
 }
 
